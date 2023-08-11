@@ -1,0 +1,17 @@
+kata yang ter stemm
+
+pengurukan : uruk
+keputih : putih
+angkutannya : angkut
+cirinya : ciri
+
+kata tidak ter stemm / Aneh
+
+factive : factive
+fhover : fhover
+fcactive : fcactive
+fchover : fchover
+aec : aec
+afactive : afactive
+afhover : afhover
+bernilai : nila

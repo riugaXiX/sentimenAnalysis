@@ -1,0 +1,14 @@
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\AdmiN\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping corpora\stopwords.zip.
+
+
+
+
+ Sastrawi stopword    
+
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+stop_factory = StopWordRemoverFactory()
+more_stopword = ['dengan', 'ia','bahwa','oleh','yhahaha']
+data = stop_factory.get_stop_words()+more_stopword
+stopword = stop_factory.create_stop_word_remover()
