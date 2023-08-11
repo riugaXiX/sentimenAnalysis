@@ -17,7 +17,7 @@ class Prediction():
         self.passwordEngine = ''
         self.hostEngine = '127.0.0.1'
         self.portEngine = 3306
-        self.modelName = 'outputModel/modelNaiveBayesJl.pkl'
+        self.modelName = 'outputModeltitle/modelNaiveBayesJl.pkl'
         self.dataBaseEngine = 'db_sma2'
 
     
@@ -29,29 +29,29 @@ class Prediction():
     def readData(self,nameTable):
         try:
             engine = self.engine()
-            df = pd.read_sql(f"select * from {nameTable} LIMIT 4000", engine)
+            df = pd.read_sql(f"select * from {nameTable} LIMIT 1000", engine)
             return df
         except Exception as ex:
             return print("Error: \n", ex)
 
     def predictedOwn(self,ds):
-        vect = TfidfVectorizer(max_features=5600)
+        vect = TfidfVectorizer(max_features=1058)
         xNewDataset = vect.fit_transform(ds)
         loaded_model = joblib.load(self.modelName)
         p = loaded_model.predict(xNewDataset)
 
-        dos = []
+        # dos = []
 
-        for prediction in p:
-            if prediction == "NETRAL":
-                do = 0
-            elif prediction == "POSITIF":
-                do = 1
-            else:
-                do = 2
-            dos.append(do) 
+        # for prediction in p:
+        #     if prediction == "NETRAL":
+        #         do = 0
+        #     elif prediction == "POSITIF":
+        #         do = 1
+        #     else:
+        #         do = 2
+        #     dos.append(do) 
 
-        return dos
+        return p
 
 class PreProcessing(Prediction):
 
